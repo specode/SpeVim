@@ -88,7 +88,7 @@ au BufRead,BufNewFile {*.md,*.mkd,*.markdown}    set ft=markdown
 au BufRead,BufNewFile {*.go}                     set ft=go
 au BufRead,BufNewFile {*.json}                   set ft=json
 
-au FileType c,cpp,java,go,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+au FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 au FileType go autocmd BufWritePre <buffer> Fmt
 
 " Auto save Foldings
