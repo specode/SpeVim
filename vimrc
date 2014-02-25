@@ -18,6 +18,9 @@ set ignorecase
 set smartcase
 set incsearch
 
+" clipboard
+set clipboard=unnamed
+
 " Syntax and filetype detect
 syntax on
 filetype plugin indent on
