@@ -231,4 +231,9 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/syntastic'
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 
+Bundle 'vim-scripts/greplace.vim'
+
+Bundle 'sjl/gundo.vim'
+nnoremap <F5> :GundoToggle<CR>
+
 "}}}
