@@ -243,4 +243,6 @@ Bundle 'bling/vim-airline'
 let g:airline_theme='badwolf'
 let g:airline#extensions#tabline#enabled = 1
 
+Bundle 'gcmt/wildfire.vim'
+
 "}}}
