@@ -234,4 +234,6 @@ Bundle 'vim-scripts/EasyGrep'
 Bundle 'sjl/gundo.vim'
 nnoremap <F7> :GundoToggle<CR>
 
+Bundle 'godlygeek/tabular'
+
 "}}}
