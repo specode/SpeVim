@@ -104,8 +104,7 @@ nnoremap Y y$
 
 cmap w!! w !sudo tee % >/dev/null
 
-map <C-t><C-t> :tabnew<CR>
-map <C-t><C-w> :tabclose<CR>
+map <C-t> :tabnew<CR>
 
 map <S-H> gT
 map <S-L> gt
@@ -171,6 +170,10 @@ let g:tagbar_type_go = {
 
 Bundle 'scrooloose/nerdtree'
 nmap <silent> <C-e> :NERDTreeToggle<CR>
+let NERDTreeMapRefreshRoot='<F5>'
+let NERDTreeMapOpenInTab='<C-t>'
+let NERDTreeMapOpenVSplit='<C-v>'
+let NERDTreeMapOpenSplit='<C-x>'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 Bundle 'tComment'
