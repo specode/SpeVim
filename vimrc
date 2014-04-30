@@ -211,7 +211,10 @@ Bundle 'myusuf3/numbers.vim'
 
 Bundle 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
-colorscheme solarized
+" colorscheme solarized
+
+Bundle 'tomasr/molokai'
+colorscheme molokai
 
 Bundle 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<CR>
