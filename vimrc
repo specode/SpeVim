@@ -202,7 +202,7 @@ let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
 
 Bundle 'nsf/gocode', {'rtp': 'vim/'}
 
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
 " let g:Powerline_symbols = 'fancy'
 
 Bundle 'terryma/vim-multiple-cursors'
@@ -232,11 +232,15 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/syntastic'
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 
-Bundle 'vim-scripts/EasyGrep'
-
 Bundle 'sjl/gundo.vim'
 nnoremap <F7> :GundoToggle<CR>
 
 Bundle 'godlygeek/tabular'
+
+Bundle 'mileszs/ack.vim'
+
+Bundle 'bling/vim-airline'
+let g:airline_theme='badwolf'
+let g:airline#extensions#tabline#enabled = 1
 
 "}}}
