@@ -248,4 +248,8 @@ let g:airline#extensions#tabline#enabled = 1
 
 Bundle 'gcmt/wildfire.vim'
 
+Bundle 'dgryski/vim-godef'
+let g:godef_same_file_in_same_window=1
+let g:godef_split=3
+
 "}}}
