@@ -93,6 +93,7 @@ au BufRead,BufNewFile {*.json}                   set ft=json
 
 au FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 au FileType go autocmd BufWritePre <buffer> Fmt
+au FileType go nnoremap <buffer> <silent> K :Godoc<cr>
 
 " Auto save Foldings
 "au BufWinLeave * silent! mkview
