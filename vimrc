@@ -222,8 +222,6 @@ nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 
 Bundle 'leshill/vim-json'
 
-Bundle 'EasyGrep'
-
 Bundle 'plasticboy/vim-markdown'
 
 Bundle 'airblade/vim-gitgutter'
@@ -234,6 +232,6 @@ let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 Bundle 'vim-scripts/EasyGrep'
 
 Bundle 'sjl/gundo.vim'
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F7> :GundoToggle<CR>
 
 "}}}
