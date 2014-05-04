@@ -51,9 +51,6 @@ set cinwords=if,else,while,do,for,switch,case
 " Visual {{{
 set background=dark
 
-" colorscheme solarized
-colorscheme molokai
-
 set number
 set showmatch
 
@@ -207,8 +204,11 @@ Bundle 'myusuf3/numbers.vim'
 
 Bundle 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
+" colorscheme solarized
 
 Bundle 'tomasr/molokai'
+colorscheme molokai
+
 
 Bundle 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<CR>
