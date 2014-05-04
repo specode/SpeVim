@@ -110,6 +110,11 @@ map <C-t> :tabnew<CR>
 map <S-H> gT
 map <S-L> gt
 
+map <C-k> <C-w><Up>
+map <C-j> <C-w><Down>
+map <C-l> <C-w><Right>
+map <C-h> <C-w><Left>
+
 let mapleader = ","
 " }}}
 
