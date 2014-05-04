@@ -51,15 +51,13 @@ set cinwords=if,else,while,do,for,switch,case
 " Visual {{{
 set background=dark
 
+" colorscheme solarized
+colorscheme molokai
+
 set number
 set showmatch
 
 set laststatus=2
-
-"set foldenable
-"set foldmethod=marker
-"set foldlevel=100
-"set foldopen=block,hor,mark,percent,quickfix,tag
 
 set splitbelow
 set splitright
@@ -94,11 +92,6 @@ au BufRead,BufNewFile {*.json}                   set ft=json
 au FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 au FileType go autocmd BufWritePre <buffer> Fmt
 au FileType go nnoremap <buffer> <silent> K :Godoc<cr>
-
-" Auto save Foldings
-"au BufWinLeave * silent! mkview
-"au BufWinEnter * silent! loadview
-"}}}
 
 " Key map {{{
 nnoremap Y y$
@@ -208,19 +201,14 @@ let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
 
 Bundle 'nsf/gocode', {'rtp': 'vim/'}
 
-"Bundle 'Lokaltog/vim-powerline'
-" let g:Powerline_symbols = 'fancy'
-
 Bundle 'terryma/vim-multiple-cursors'
 
 Bundle 'myusuf3/numbers.vim'
 
 Bundle 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
-" colorscheme solarized
 
 Bundle 'tomasr/molokai'
-colorscheme molokai
 
 Bundle 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<CR>
