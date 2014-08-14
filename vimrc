@@ -87,8 +87,6 @@ au BufRead,BufNewFile {*.go}                     set ft=go
 au BufRead,BufNewFile {*.json}                   set ft=json
 
 au FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-au FileType go autocmd BufWritePre <buffer> Fmt
-au FileType go nnoremap <buffer> <silent> K :Godoc<cr>
 
 " Key map {{{
 nnoremap Y y$
@@ -178,8 +176,6 @@ vnoremap // :TComment<CR>
 
 Bundle 'kien/ctrlp.vim'
 
-Bundle 'jnwhiteh/vim-golang'
-
 Bundle 'Shougo/neocomplete.vim'
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
@@ -201,8 +197,6 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\.\?'
 
-Bundle 'nsf/gocode', {'rtp': 'vim/'}
-
 Bundle 'terryma/vim-multiple-cursors'
 
 Bundle 'myusuf3/numbers.vim'
@@ -213,7 +207,6 @@ let g:solarized_termcolors=256
 
 Bundle 'tomasr/molokai'
 colorscheme molokai
-
 
 Bundle 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -247,8 +240,5 @@ let g:airline#extensions#tabline#enabled = 1
 
 Bundle 'gcmt/wildfire.vim'
 
-Bundle 'dgryski/vim-godef'
-let g:godef_same_file_in_same_window=1
-let g:godef_split=3
-
+Bundle 'fatih/vim-go'
 "}}}
