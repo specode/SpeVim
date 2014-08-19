@@ -133,6 +133,7 @@ Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-easymotion'
 
 Bundle 'majutsushi/tagbar'
+autocmd VimEnter * nested :TagbarOpen
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
