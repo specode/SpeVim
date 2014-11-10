@@ -49,6 +49,7 @@ set cinwords=if,else,while,do,for,switch,case
 "}}}
 
 " Visual {{{
+set t_Co=256
 set background=dark
 
 set number
@@ -63,8 +64,7 @@ set mousehide
 " set mouse=a
 
 set cursorline
-
-highlight clear SignColumn
+hi CursorLine cterm=NONE ctermbg=236 ctermfg=NONE gui=NONE guibg=#2d2d2d guifg=NONE
 
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
@@ -222,12 +222,6 @@ function! Multiple_cursors_after()
   endif
 endfunction
 
-Bundle 'myusuf3/numbers.vim'
-
-Bundle 'altercation/vim-colors-solarized'
-let g:solarized_termcolors=256
-" colorscheme solarized
-
 Bundle 'tomasr/molokai'
 colorscheme molokai
 
@@ -249,9 +243,6 @@ Bundle 'airblade/vim-gitgutter'
 
 Bundle 'scrooloose/syntastic'
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-
-Bundle 'sjl/gundo.vim'
-nnoremap <F7> :GundoToggle<CR>
 
 Bundle 'godlygeek/tabular'
 
