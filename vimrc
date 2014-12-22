@@ -1,5 +1,6 @@
 " General {{{
 set nocompatible
+filetype off
 
 scriptencoding utf-8
 
@@ -21,9 +22,8 @@ set incsearch
 " clipboard
 set clipboard=unnamed
 
-" Syntax and filetype detect
+" Syntax
 syntax on
-filetype plugin indent on
 "}}}
 
 " Formatting {{{
@@ -123,16 +123,16 @@ endfunction
 "}}}
 
 " Plugins {{{
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Vundle
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " Other plugins
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 
-Bundle 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
@@ -162,7 +162,7 @@ let g:tagbar_type_go = {
 	\ 'ctagsargs' : '-sort -silent'
 \ }
 
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 nmap <silent> <C-e> :NERDTreeToggle<CR>
 let NERDTreeMapRefreshRoot='<F5>'
 let NERDTreeMapOpenInTab='<C-t>'
@@ -170,13 +170,14 @@ let NERDTreeMapOpenVSplit='<C-v>'
 let NERDTreeMapOpenSplit='<C-x>'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-Bundle 'tComment'
+Plugin 'tComment'
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 
-Bundle 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neocomplete.vim'
+let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
@@ -192,22 +193,16 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php setlocal omnifunc=phpcomplete#Complete
 if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+	let g:neocomplete#sources#omni#input_patterns = {}
 endif
 let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\.\?'
-Bundle 'Shougo/neosnippet'
-Bundle 'Shougo/neosnippet-snippets'
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-			\ "\<Plug>(neosnippet_expand_or_jump)"
-			\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-			\ "\<Plug>(neosnippet_expand_or_jump)"
-			\: "\<TAB>"
-if has('conceal')
-	set conceallevel=2 concealcursor=i
-endif
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+	return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-Bundle 'kristijanhusak/vim-multiple-cursors'
+Plugin 'kristijanhusak/vim-multiple-cursors'
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
   if exists(':NeoCompleteLock')==2
@@ -222,10 +217,9 @@ function! Multiple_cursors_after()
   endif
 endfunction
 
-Bundle 'tomasr/molokai'
-colorscheme molokai
+Plugin 'tomasr/molokai'
 
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -235,35 +229,39 @@ nnoremap <silent> <leader>gp :Git push<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
 nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 
-Bundle 'leshill/vim-json'
+Plugin 'leshill/vim-json'
 
-Bundle 'plasticboy/vim-markdown'
+Plugin 'plasticboy/vim-markdown'
 
-Bundle 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 
-Bundle 'godlygeek/tabular'
+Plugin 'godlygeek/tabular'
 
-Bundle 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
 
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 let g:airline_theme='badwolf'
 let g:airline#extensions#tabline#enabled = 1
 
-Bundle 'gcmt/wildfire.vim'
+Plugin 'gcmt/wildfire.vim'
 
-Bundle 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 au FileType go nmap <Leader>k <Plug>(go-doc-browser)
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
-let g:go_snippet_engine = "neosnippet"
 
-Bundle 'haya14busa/incsearch.vim'
+Plugin 'haya14busa/incsearch.vim'
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
+call vundle#end()
+
+filetype plugin indent on
+
+color molokai
 "}}}
