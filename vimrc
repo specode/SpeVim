@@ -219,6 +219,8 @@ endfunction
 
 Plugin 'tomasr/molokai'
 
+Plugin 'w0ng/vim-hybrid'
+
 Plugin 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -263,5 +265,6 @@ call vundle#end()
 
 filetype plugin indent on
 
-color molokai
+" color molokai
+color hybrid
 "}}}
