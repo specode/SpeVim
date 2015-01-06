@@ -240,7 +240,7 @@ let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 
 Plugin 'godlygeek/tabular'
 
-Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 
 Plugin 'bling/vim-airline'
 let g:airline_theme='badwolf'
