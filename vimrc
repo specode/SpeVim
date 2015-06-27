@@ -240,8 +240,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 
-Plugin 'godlygeek/tabular'
-
 Plugin 'rking/ag.vim'
 
 Plugin 'bling/vim-airline'
