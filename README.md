@@ -1,6 +1,6 @@
 ## About
 
-This is my persion use vim config.
+This is my personally use vim config.
 
 My main work on Go, PHP, You can fork this repositorie and modify it until you like.
 
