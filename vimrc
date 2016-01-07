@@ -83,6 +83,7 @@ set t_vb=
 
 set completeopt=
 
+set nofoldenable
 "}}}
 
 " Auto commands {{{
