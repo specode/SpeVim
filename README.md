@@ -57,3 +57,4 @@ Plugin Lists:
 * vim-go
 * incsearch.vim
 * gist-vim
+* vim-notes

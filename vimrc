@@ -269,6 +269,10 @@ Plugin 'mattn/gist-vim'
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
+Plugin 'xolox/vim-notes'
+Plugin 'xolox/vim-misc'
+let g:notes_directories = ['~/Documents/Notes']
+
 call vundle#end()
 
 filetype plugin indent on
