@@ -29,6 +29,8 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 * clipboard on Mac OS X is shared with system
 * paste toggle is F10
 * when you forget for edit file with root, you can try w!! save file
+* [e : move line up
+* ]e : move line down
 
 
 Plugin Lists:
