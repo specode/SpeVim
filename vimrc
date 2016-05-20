@@ -239,6 +239,7 @@ nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 Plugin 'leshill/vim-json'
 
 Plugin 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
 
 Plugin 'airblade/vim-gitgutter'
 
