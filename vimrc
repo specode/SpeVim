@@ -281,9 +281,9 @@ au FileType go nmap <Leader>gd <Plug>(go-doc-browser)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 au FileType go nmap gd :GoDef<CR>
 au FileType go nmap gb :GoDefPop<CR>
-au FileType go nmap gs <Plug>(go-def-split)
-au FileType go nmap gv <Plug>(go-def-vertical)
-au FileType go nmap gt <Plug>(go-def-tab)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
 Plugin 'haya14busa/incsearch.vim'
 map /  <Plug>(incsearch-forward)
