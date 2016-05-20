@@ -244,25 +244,36 @@ Plugin 'airblade/vim-gitgutter'
 
 Plugin 'scrooloose/syntastic'
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:go_list_type = "quickfix"
 
 Plugin 'rking/ag.vim'
 
 Plugin 'bling/vim-airline'
-let g:airline_theme='badwolf'
 let g:airline#extensions#tabline#enabled = 1
 
 Plugin 'gcmt/wildfire.vim'
 
 Plugin 'fatih/vim-go'
-au FileType go nmap <Leader>k <Plug>(go-doc-browser)
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+let g:go_def_mapping_enabled = 0
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>gd <Plug>(go-doc-browser)
+au FileType go nmap <Leader>e <Plug>(go-rename)
+au FileType go nmap gd :GoDef<CR>
+au FileType go nmap gb :GoDefPop<CR>
+au FileType go nmap gs <Plug>(go-def-split)
+au FileType go nmap gv <Plug>(go-def-vertical)
+au FileType go nmap gt <Plug>(go-def-tab)
 
 Plugin 'haya14busa/incsearch.vim'
 map /  <Plug>(incsearch-forward)
@@ -273,10 +284,6 @@ Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
-
-Plugin 'xolox/vim-notes'
-Plugin 'xolox/vim-misc'
-let g:notes_directories = ['~/Documents/Notes']
 
 call vundle#end()
 
