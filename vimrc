@@ -57,7 +57,9 @@ set t_Co=256
 set background=dark
 
 set number
-set showmatch
+" set showmatch
+" Disable it cause it's lags
+let loaded_matchparen = 1
 
 set laststatus=2
 
@@ -69,6 +71,9 @@ set mousehide
 
 set cursorline
 hi CursorLine cterm=NONE ctermbg=236 ctermfg=NONE gui=NONE guibg=#2d2d2d guifg=NONE
+
+set ttyfast
+set lazyredraw
 
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
@@ -233,8 +238,6 @@ endfunction
 
 Plugin 'tomasr/molokai'
 
-Plugin 'w0ng/vim-hybrid'
-
 Plugin 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -275,6 +278,7 @@ let g:airline#extensions#paste#symbol      = 'ρ'
 Plugin 'gcmt/wildfire.vim'
 
 Plugin 'fatih/vim-go'
+set re=1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -308,5 +312,4 @@ call vundle#end()
 filetype plugin indent on
 
 color molokai
-" color hybrid
-"}}}
+" }}}
