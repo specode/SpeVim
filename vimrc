@@ -98,6 +98,9 @@ au BufRead,BufNewFile {*.json}                   set ft=json
 
 au FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
+autocmd VimEnter * call InitVimProject()
+" }}}
+
 " Key map {{{
 nnoremap Y y$
 
@@ -130,7 +133,14 @@ function! StripTrailingWhitespace()
 	call cursor(l, c)
 endfunction
 
-"}}}
+function! InitVimProject()
+	let initFile = "./viminit.sh"
+	if filereadable(initFile)
+		silent exec '!sh ' . initFile
+		redraw!
+	endif
+endfunction
+" }}}
 
 " Plugins {{{
 set rtp+=~/.vim/bundle/Vundle.vim
