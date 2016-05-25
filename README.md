@@ -15,7 +15,10 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 
 3. Using it.
 
-## The useful plugin
+## The useful plugin mapping
+
+**Tip: Only custom key mapping listed, Other plugin are using default**
+
 * File explore & File search
 	* `ctrl + e` nerdtree: file explore
 	* `ctrl + p` ctrlp: quick search file
