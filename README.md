@@ -15,23 +15,51 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 
 3. Using it.
 
+## The useful plugin
+* File explore & File search
+	* `ctrl + e` nerdtree: file explore
+	* `ctrl + p` ctrlp: quick search file
+	* `F5` nerdtree & ctrlp: refresh
+	* `ctrl + t` nerdtree & ctrlp: open in tab
+	* `ctrl + v` nerdtree & ctrlp: Open V split
+	* `ctrl + x` nerdtree & ctrlp: Open X split
+* Tarbar
+	* `F8` Toggle tarbar
+* Git
+	* `<leader>gs` vim-fugitive: `git status`
+	* `<leader>gd` vim-fugitive: `git diff`
+	* `<leader>gc` vim-fugitive: `git commit`
+	* `<leader>gw` vim-fugitive: `git add`
+	* `<leader>gl` vim-fugitive: `git log`
+* Go
+	* `<leader>r` vim-go: `go run`
+	* `<leader>b` vim-go: `go build`
+	* `<leader>t` vim-go: `go test`
+	* `<leader>c` vim-go: go-coverage
+	* `<leader>gd` vim-go: `godoc`
+	* `gd` vim-go: `:GoDef`
+	* `gb` vim-go: `:GoDefPop`
+	* `<leader>dx` vim-go: `go-def-split`
+	* `<leader>dv` vim-go: `go-def-vertical`
+	* `<leader>dt` vim-go: `go-def-tab`
+
 ## Tips
 
-* leader is ","
-* ctrl + t : new tab
-* shift + h : gT
-* shift + l : gt
-* ctrl + k : ctrl + w + (up)
-* ctrl + j : ctrl + w + (down)
-* ctrl + l : ctrl + w + (right)
-* ctrl + h : ctrl + w + (left)
-* tab is 4 width tab, no space
-* clipboard on Mac OS X is shared with system
-* paste toggle is F10
-* when you forget for edit file with root, you can try w!! save file
-* [e : move line up
-* ]e : move line down
-
+* leader is `,`
+* `ctrl + t` new tab
+* `shift + h` gT
+* `shift + l` gt
+* `ctrl + k` = `ctrl + w + (up)`
+* `ctrl + j` = `ctrl + w + (down)`
+* `ctrl + l` = `ctrl + w + (right)`
+* `ctrl + h` = `ctrl + w + (left)`
+* **tab** is 4 width tab, no space
+* **clipboard** on Mac OS X is shared with system
+* **paste toggle** is `F10`
+* **sudo save file:** when you forget for edit file with root, you can try w!! save file
+* `[e`  move line up
+* `]e` move line down
+* **project init script:** execute "./viminit.sh" when startup vim, you can using for init project, like set golang $GOPATH
 
 Plugin Lists:
 -------------
@@ -45,7 +73,6 @@ Plugin Lists:
 * neocomplete
 * vim-multiple-cursors
 * molokai
-* vim-hybrid
 * vim-fugitive
 * vim-json
 * vim-markdown
@@ -57,4 +84,3 @@ Plugin Lists:
 * vim-go
 * incsearch.vim
 * gist-vim
-* vim-notes
