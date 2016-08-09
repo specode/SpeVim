@@ -62,7 +62,6 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 * **sudo save file:** when you forget for edit file with root, you can try w!! save file
 * `[e`  move line up
 * `]e` move line down
-* **project init script:** execute "./viminit.sh" when startup vim, you can using for init project, like set golang $GOPATH
 
 Plugin Lists:
 -------------
