@@ -60,9 +60,7 @@ set t_Co=256
 set background=dark
 
 set number
-" set showmatch
-" Disable it cause it's lags
-let loaded_matchparen = 1
+set showmatch
 
 set laststatus=2
 
@@ -75,9 +73,6 @@ set mousehide
 set cursorline
 hi CursorLine cterm=NONE ctermbg=236 ctermfg=NONE gui=NONE guibg=#2d2d2d guifg=NONE
 
-set ttyfast
-set lazyredraw
-
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
@@ -86,8 +81,10 @@ set winminheight=0
 set virtualedit=onemore
 
 set noerrorbells
-set novisualbell
-set t_vb=
+set vb t_vb=
+if has("autocmd") && has("gui")
+	au GUIEnter * set t_vb=
+endif
 
 set completeopt=
 
