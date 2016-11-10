@@ -68,7 +68,7 @@ set splitbelow
 set splitright
 
 set mousehide
-" set mouse=a
+set mouse=a
 
 set cursorline
 hi CursorLine cterm=NONE ctermbg=236 ctermfg=NONE gui=NONE guibg=#2d2d2d guifg=NONE
@@ -96,7 +96,13 @@ au BufRead,BufNewFile {*.md,*.mkd,*.markdown}    set ft=markdown
 au BufRead,BufNewFile {*.go}                     set ft=go
 au BufRead,BufNewFile {*.json}                   set ft=json
 
+au FileType html,javascript,css     set shiftwidth=2
+au FileType html,javascript,css     set tabstop=2
+au FileType html,javascript,css,php set expandtab
+
 au FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+
+autocmd BufEnter * cd %:p:h
 " }}}
 
 " Key map {{{
