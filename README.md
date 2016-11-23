@@ -22,12 +22,10 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 * File explore & File search
 	* `ctrl + e` nerdtree: file explore
 	* `ctrl + p` ctrlp: quick search file
-	* `F5` nerdtree & ctrlp: refresh
+	* `ctrl + r` nerdtree & ctrlp: refresh
 	* `ctrl + t` nerdtree & ctrlp: open in tab
 	* `ctrl + v` nerdtree & ctrlp: Open V split
 	* `ctrl + x` nerdtree & ctrlp: Open X split
-* Tarbar
-	* `F8` Toggle tarbar
 * Git
 	* `<leader>gs` vim-fugitive: `git status`
 	* `<leader>gd` vim-fugitive: `git diff`
@@ -58,7 +56,6 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 * `ctrl + h` = `ctrl + w + (left)`
 * **tab** is 4 width tab, no space
 * **clipboard** on Mac OS X is shared with system
-* **paste toggle** is `F10`
 * **sudo save file:** when you forget for edit file with root, you can try w!! save file
 * `[e`  move line up
 * `]e` move line down

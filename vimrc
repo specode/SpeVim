@@ -150,7 +150,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Lokaltog/vim-easymotion'
 
 Plugin 'majutsushi/tagbar'
-nmap <F8> :TagbarToggle<CR>
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
 	\ 'kinds'     : [
@@ -181,7 +180,7 @@ let g:tagbar_type_go = {
 
 Plugin 'scrooloose/nerdtree'
 nmap <silent> <C-e> :NERDTreeToggle<CR>
-let NERDTreeMapRefreshRoot='<F5>'
+let NERDTreeMapRefreshRoot='<C-r>'
 let NERDTreeMapOpenInTab='<C-t>'
 let NERDTreeMapOpenVSplit='<C-v>'
 let NERDTreeMapOpenSplit='<C-x>'
@@ -221,10 +220,6 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 	let g:neocomplete#sources#omni#input_patterns = {}
 endif
 let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\.\?'
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-	return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 Plugin 'kristijanhusak/vim-multiple-cursors'
