@@ -68,7 +68,6 @@ set splitbelow
 set splitright
 
 set mousehide
-set mouse=a
 
 set cursorline
 hi CursorLine cterm=NONE ctermbg=236 ctermfg=NONE gui=NONE guibg=#2d2d2d guifg=NONE
