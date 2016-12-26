@@ -70,10 +70,9 @@ set splitright
 set mousehide
 
 set cursorline
-hi CursorLine cterm=NONE ctermbg=236 ctermfg=NONE gui=NONE guibg=#2d2d2d guifg=NONE
 
-set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+" set list
+" set listchars=tab:>\ ,trail:•,extends:#,nbsp:.
 
 set winminheight=0
 
@@ -236,8 +235,6 @@ function! Multiple_cursors_after()
   endif
 endfunction
 
-Plugin 'tomasr/molokai'
-
 Plugin 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -274,6 +271,7 @@ let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
 let g:airline#extensions#readonly#symbol   = '⊘'
 let g:airline#extensions#linecolumn#prefix = '¶'
 let g:airline#extensions#paste#symbol      = 'ρ'
+Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'gcmt/wildfire.vim'
 
@@ -307,9 +305,21 @@ Plugin 'mattn/gist-vim'
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
+" color
+Plugin 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
+let g:solarized_termtrans = 1
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'reedes/vim-colors-pencil'
+
 call vundle#end()
 
 filetype plugin indent on
 
-color molokai
+color solarized
+" color papercolor
+" color molokai
+
+set background=light
+" set background=dark
 " }}}
