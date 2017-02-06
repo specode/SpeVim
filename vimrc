@@ -301,6 +301,7 @@ let g:gist_post_private = 1
 
 Plugin 'vim-php/tagbar-phpctags.vim'
 let g:tagbar_phpctags_bin='/usr/local/Cellar/phpctags/0.6.0/bin/phpctags'
+
 " color
 Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
