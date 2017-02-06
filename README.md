@@ -81,5 +81,4 @@ Plugin Lists:
 * vim-airline
 * wildfire.vim
 * vim-go
-* incsearch.vim
 * gist-vim

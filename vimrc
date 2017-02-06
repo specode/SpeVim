@@ -71,9 +71,6 @@ set mousehide
 
 set cursorline
 
-" set list
-" set listchars=tab:>\ ,trail:•,extends:#,nbsp:.
-
 set winminheight=0
 
 set virtualedit=onemore
@@ -87,6 +84,9 @@ endif
 set completeopt=
 
 set nofoldenable
+
+set incsearch
+
 "}}}
 
 " Auto commands {{{
@@ -99,8 +99,6 @@ au FileType html,javascript,css     set tabstop=2
 au FileType html,javascript,css,php set expandtab
 
 au FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-
-autocmd BufEnter * cd %:p:h
 " }}}
 
 " Key map {{{
@@ -175,6 +173,7 @@ let g:tagbar_type_go = {
 	\ 'ctagsbin'  : 'gotags',
 	\ 'ctagsargs' : '-sort -silent'
 \ }
+nnoremap <leader>tb :TagbarToggle<CR>
 
 Plugin 'scrooloose/nerdtree'
 nmap <silent> <C-e> :NERDTreeToggle<CR>
@@ -295,29 +294,22 @@ au FileType go nmap <Leader>dx <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
-Plugin 'haya14busa/incsearch.vim'
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
+Plugin 'vim-php/tagbar-phpctags.vim'
+let g:tagbar_phpctags_bin='/usr/local/Cellar/phpctags/0.6.0/bin/phpctags'
 " color
 Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
-let g:solarized_termtrans = 1
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'reedes/vim-colors-pencil'
 
 call vundle#end()
 
 filetype plugin indent on
 
 color solarized
-" color papercolor
 " color molokai
 
 set background=light
