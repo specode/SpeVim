@@ -144,7 +144,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Lokaltog/vim-easymotion'
 
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar' | Plug 'vim-php/tagbar-phpctags.vim'
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
 	\ 'kinds'     : [
@@ -173,8 +173,6 @@ let g:tagbar_type_go = {
 	\ 'ctagsargs' : '-sort -silent'
 \ }
 nnoremap <leader>tb :TagbarToggle<CR>
-
-Plug 'vim-php/tagbar-phpctags.vim'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 nmap <silent> <C-e> :NERDTreeToggle<CR>
@@ -242,7 +240,7 @@ let g:go_list_type = "quickfix"
 
 Plug 'rking/ag.vim'
 
-Plug 'bling/vim-airline'
+Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_left_sep          = '▶'
@@ -253,11 +251,10 @@ let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
 let g:airline#extensions#readonly#symbol   = '⊘'
 let g:airline#extensions#linecolumn#prefix = '¶'
 let g:airline#extensions#paste#symbol      = 'ρ'
-Plug 'vim-airline/vim-airline-themes'
 
 Plug 'gcmt/wildfire.vim'
 
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } | Plug 'jodosha/vim-godebug'
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -274,6 +271,8 @@ au FileType go nmap gb :GoDefPop<CR>
 au FileType go nmap <Leader>dx <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>dp :GoToggleBreakpoint<CR>
+au FileType go nmap <Leader>db :GoDebug<CR>
 
 Plug 'mattn/webapi-vim', { 'for': 'mattn/gist-vim' }
 

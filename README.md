@@ -40,6 +40,7 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 * gist-vim
 * webapi-vim
 * dash.vim
+* vim-godebug
 
 ## The useful plugin mapping
 
@@ -69,6 +70,8 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 	* `<leader>dx` vim-go: `go-def-split`
 	* `<leader>dv` vim-go: `go-def-vertical`
 	* `<leader>dt` vim-go: `go-def-tab`
+	* `<leader>dp` vim-godebug: `:GoToggleBreakpoint`
+	* `<leader>db` vim-godebug: `:GoDebug`
 * Tagbar
 	* Toggle: `<leader>tb`
 
