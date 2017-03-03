@@ -1,19 +1,45 @@
 ## About
 
-This is my personally use vim config.
+This is my personally use neovim config.
 
 My main work on Go, PHP, You can fork this repositorie and modify it until you like.
 
-## Quick Start
+*The config only test on macOS + iTerm2 + neovim.*
+
+## Quick Start (macOS)
 
 1. Install plugins dependencies:
-    * Vundle for manager plugins: `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
-    * Gotags for tagbar: `go get -u github.com/jstemmer/gotags` or `brew install gotags`(For Mac OS X)
-    * Ag for code search: see https://github.com/ggreer/the_silver_searcher
+    * vim-plug: see https://github.com/junegunn/vim-plug
+    * Ag for code search and speed up ctrlp: `brew install the_silver_searcher`
+	* upgrade ctags for tagbar: `brew install ctags`, set PATH `export PATH="$(brew --prefix ctags)/bin:$PATH"`
+    * phpctags for tagbar: `brew install phpctags`, set PATH `export PATH="$(brew --prefix phpctags)/bin:$PATH"`
+    * gotags for tagbar: `brew install gotags`
 
-2. Install plugins: Open vim and :PluginInstall
+2. Install plugins: Open vim and :PlugInstall
 
-3. Using it.
+## Plugin List
+
+* vim-plug
+* vim-easymotion
+* tagbar
+* tagbar-phpctags.vim
+* nerdtree
+* YouCompleteMe
+* vim-multiple-cursors
+* tComment
+* ctrlp.vim
+* ctrlp-py-matcher
+* vim-fugitive
+* vim-markdown
+* syntastic
+* ag.vim
+* vim-airline
+* vim-airline-themes
+* wildfire.vim
+* vim-go
+* gist-vim
+* webapi-vim
+* dash.vim
 
 ## The useful plugin mapping
 
@@ -43,6 +69,8 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 	* `<leader>dx` vim-go: `go-def-split`
 	* `<leader>dv` vim-go: `go-def-vertical`
 	* `<leader>dt` vim-go: `go-def-tab`
+* Tagbar
+	* Toggle: `<leader>tb`
 
 ## Tips
 
@@ -55,30 +83,7 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 * `ctrl + l` = `ctrl + w + (right)`
 * `ctrl + h` = `ctrl + w + (left)`
 * **tab** is 4 width tab, no space
-* **clipboard** on Mac OS X is shared with system
+* **clipboard** on macOS is shared with system
 * **sudo save file:** when you forget for edit file with root, you can try w!! save file
-* `[e`  move line up
+* `[e` move line up
 * `]e` move line down
-
-Plugin Lists:
--------------
-
-* Vundle
-* easymotion
-* tagbar
-* nerdtree
-* tComment
-* ctrlp
-* neocomplete
-* vim-multiple-cursors
-* molokai
-* vim-fugitive
-* vim-json
-* vim-markdown
-* vim-gitgutter
-* syntastic
-* ag.vim
-* vim-airline
-* wildfire.vim
-* vim-go
-* gist-vim

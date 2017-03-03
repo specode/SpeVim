@@ -1,6 +1,5 @@
 " General {{{
 set nocompatible
-filetype off
 
 scriptencoding utf-8
 set fileencodings=utf-8
@@ -9,7 +8,6 @@ set encoding=utf-8
 
 set autowrite
 set autoread
-set autochdir
 set hidden
 
 " Backup
@@ -91,8 +89,8 @@ set incsearch
 
 " Auto commands {{{
 au BufRead,BufNewFile {*.md,*.mkd,*.markdown}    set ft=markdown
-au BufRead,BufNewFile {*.go}                     set ft=go
-au BufRead,BufNewFile {*.json}                   set ft=json
+" au BufRead,BufNewFile {*.go}                     set ft=go
+" au BufRead,BufNewFile {*.json}                   set ft=json
 
 au FileType html,javascript,css     set shiftwidth=2
 au FileType html,javascript,css     set tabstop=2
@@ -111,6 +109,12 @@ map <C-t> :tabnew<CR>
 map <S-H> gT
 map <S-L> gt
 
+if has('nvim')
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  " Hack to get C-h working in neovim
+  nmap <BS> <C-W>h
+  tnoremap <Esc> <C-\><C-n>
+endif
 map <C-k> <C-w><Up>
 map <C-j> <C-w><Down>
 map <C-l> <C-w><Right>
@@ -136,16 +140,11 @@ endfunction
 " }}}
 
 " Plugins {{{
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 
-" Vundle
-Plugin 'gmarik/Vundle.vim'
+Plug 'Lokaltog/vim-easymotion'
 
-" Other plugins
-Plugin 'Lokaltog/vim-easymotion'
-
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
 	\ 'kinds'     : [
@@ -175,7 +174,9 @@ let g:tagbar_type_go = {
 \ }
 nnoremap <leader>tb :TagbarToggle<CR>
 
-Plugin 'scrooloose/nerdtree'
+Plug 'vim-php/tagbar-phpctags.vim'
+
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 nmap <silent> <C-e> :NERDTreeToggle<CR>
 let NERDTreeMapRefreshRoot='<C-r>'
 let NERDTreeMapOpenInTab='<C-t>'
@@ -183,58 +184,42 @@ let NERDTreeMapOpenVSplit='<C-v>'
 let NERDTreeMapOpenSplit='<C-x>'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-Plugin 'tComment'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } | Plug 'shawncplus/phpcomplete.vim'
+let g:ycm_collect_identifiers_from_tags_files=1
+let g:ycm_seed_identifiers_with_syntax = 1
+au FileType css           setlocal omnifunc=csscomplete#CompleteCSS
+au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+au FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
+au FileType python        setlocal omnifunc=pythoncomplete#Complete
+au FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
+au FileType php           setlocal omnifunc=phpcomplete#Complete
+
+Plug 'kristijanhusak/vim-multiple-cursors'
+
+Plug 'tComment'
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
-Plugin 'kien/ctrlp.vim'
-let g:ctrlp_working_path_mode = 'ra'
+Plug 'kien/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_lazy_update = 100
+let g:ctrlp_max_files = 0
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-
-Plugin 'Shougo/neocomplete.vim'
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-if !exists('g:neocomplete#keyword_patterns')
-	let g:neocomplete#keyword_patterns = {}
+	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+	\ 'file': '\v\.(exe|so|dll)$',
+	\ 'link': 'some_bad_symbolic_links',
+	\ }
+if executable("ag")
+	set grepprg=ag\ --nogroup\ --nocolor
+	let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.svn'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
 endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php setlocal omnifunc=phpcomplete#Complete
-if !exists('g:neocomplete#sources#omni#input_patterns')
-	let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\.\?'
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-Plugin 'kristijanhusak/vim-multiple-cursors'
-" Called once right before you start selecting multiple cursors
-function! Multiple_cursors_before()
-  if exists(':NeoCompleteLock')==2
-    exe 'NeoCompleteLock'
-  endif
-endfunction
-
-" Called once only when the multiple selection is canceled (default <Esc>)
-function! Multiple_cursors_after()
-  if exists(':NeoCompleteUnlock')==2
-    exe 'NeoCompleteUnlock'
-  endif
-endfunction
-
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -244,22 +229,20 @@ nnoremap <silent> <leader>gp :Git push<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
 nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 
-Plugin 'leshill/vim-json'
-
-Plugin 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
 
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:go_list_type = "quickfix"
 
-Plugin 'rking/ag.vim'
+Plug 'rking/ag.vim'
 
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_left_sep          = '▶'
@@ -270,12 +253,11 @@ let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
 let g:airline#extensions#readonly#symbol   = '⊘'
 let g:airline#extensions#linecolumn#prefix = '¶'
 let g:airline#extensions#paste#symbol      = 'ρ'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 
-Plugin 'gcmt/wildfire.vim'
+Plug 'gcmt/wildfire.vim'
 
-Plugin 'fatih/vim-go'
-set re=1
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -286,7 +268,6 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
-au FileType go nmap <Leader>gd <Plug>(go-doc-browser)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 au FileType go nmap gd :GoDef<CR>
 au FileType go nmap gb :GoDefPop<CR>
@@ -294,21 +275,20 @@ au FileType go nmap <Leader>dx <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
+Plug 'mattn/webapi-vim', { 'for': 'mattn/gist-vim' }
+
+Plug 'mattn/gist-vim'
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
-Plugin 'vim-php/tagbar-phpctags.vim'
-let g:tagbar_phpctags_bin='/usr/local/Cellar/phpctags/0.6.0/bin/phpctags'
+Plug 'rizzatti/dash.vim'
+nmap <silent> <leader>d <Plug>DashSearch
 
 " color
-Plugin 'tomasr/molokai'
-Plugin 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+Plug 'altercation/vim-colors-solarized'
 
-call vundle#end()
-
-filetype plugin indent on
+call plug#end()
 
 color solarized
 " color molokai
