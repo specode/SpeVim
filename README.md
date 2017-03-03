@@ -14,6 +14,7 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 	* upgrade ctags for tagbar: `brew install ctags`, set PATH `export PATH="$(brew --prefix ctags)/bin:$PATH"`
     * phpctags for tagbar: `brew install phpctags`, set PATH `export PATH="$(brew --prefix phpctags)/bin:$PATH"`
     * gotags for tagbar: `brew install gotags`
+	* delve for godebug: `brew install go-delve/delve/delve`
 
 2. Install plugins: Open vim and :PlugInstall
 
