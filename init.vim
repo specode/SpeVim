@@ -89,8 +89,6 @@ set incsearch
 
 " Auto commands {{{
 au BufRead,BufNewFile {*.md,*.mkd,*.markdown}    set ft=markdown
-" au BufRead,BufNewFile {*.go}                     set ft=go
-" au BufRead,BufNewFile {*.json}                   set ft=json
 
 au FileType html,javascript,css     set shiftwidth=2
 au FileType html,javascript,css     set tabstop=2
@@ -110,7 +108,6 @@ map <S-H> gT
 map <S-L> gt
 
 if has('nvim')
-  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   " Hack to get C-h working in neovim
   nmap <BS> <C-W>h
   tnoremap <Esc> <C-\><C-n>
