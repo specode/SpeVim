@@ -284,6 +284,8 @@ let g:gist_post_private = 1
 Plug 'rizzatti/dash.vim'
 nmap <silent> <leader>d <Plug>DashSearch
 
+Plug 'jodosha/vim-godebug'
+
 " color
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
