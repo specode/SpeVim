@@ -176,7 +176,7 @@ let NERDTreeMapRefreshRoot='<C-r>'
 let NERDTreeMapOpenInTab='<C-t>'
 let NERDTreeMapOpenVSplit='<C-v>'
 let NERDTreeMapOpenSplit='<C-x>'
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+au BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } | Plug 'shawncplus/phpcomplete.vim'
 let g:ycm_collect_identifiers_from_tags_files=1
@@ -186,7 +186,15 @@ au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 au FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
 au FileType python        setlocal omnifunc=pythoncomplete#Complete
 au FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
-au FileType php           setlocal omnifunc=phpcomplete#Complete
+au FileType php           setlocal omnifunc=phpcomplete#CompletePHP
+let g:phpcomplete_mappings = {
+  \ 'jump_to_def': 'gd',
+  \ }
+
+Plug 'soramugi/auto-ctags.vim'
+let g:auto_ctags_tags_args = '-R  --recurse --sort=yes --output-format=e-ctags'
+au FileType php autocmd BufEnter * :Ctags
+au FileType php autocmd BufWritePost * :Ctags
 
 Plug 'kristijanhusak/vim-multiple-cursors'
 
@@ -201,7 +209,7 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_lazy_update = 100
+let g:ctrlp_lazy_update = 50
 let g:ctrlp_max_files = 0
 let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
@@ -270,16 +278,12 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au FileType go nmap <Leader>dp :GoToggleBreakpoint<CR>
 au FileType go nmap <Leader>db :GoDebug<CR>
 
-Plug 'mattn/webapi-vim', { 'for': 'mattn/gist-vim' }
-
-Plug 'mattn/gist-vim'
+Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
 Plug 'rizzatti/dash.vim'
 nmap <silent> <leader>d <Plug>DashSearch
-
-Plug 'jodosha/vim-godebug'
 
 " color
 Plug 'tomasr/molokai'
