@@ -42,6 +42,7 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 * webapi-vim
 * dash.vim
 * vim-godebug
+* auto-ctags.vim
 
 ## The useful plugin mapping
 

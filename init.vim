@@ -193,8 +193,7 @@ let g:phpcomplete_mappings = {
 
 Plug 'soramugi/auto-ctags.vim'
 let g:auto_ctags_tags_args = '-R  --recurse --sort=yes --output-format=e-ctags'
-au FileType php autocmd BufEnter * :Ctags
-au FileType php autocmd BufWritePost * :Ctags
+au FileType php autocmd BufWinEnter,BufWritePost  * :Ctags
 
 Plug 'kristijanhusak/vim-multiple-cursors'
 
@@ -202,10 +201,12 @@ Plug 'tComment'
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
-Plug 'kien/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_extensions = ['tag']
+let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_clear_cache_on_exit = 0
