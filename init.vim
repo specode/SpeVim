@@ -193,7 +193,9 @@ let g:phpcomplete_mappings = {
 
 Plug 'soramugi/auto-ctags.vim'
 let g:auto_ctags_tags_args = '-R  --recurse --sort=yes --output-format=e-ctags'
-au FileType php autocmd BufWinEnter,BufWritePost  * :Ctags
+let g:auto_ctags_tags_name = '.tags'
+set tags+=./.tags;
+au FileType php autocmd BufWritePost  * :Ctags
 
 Plug 'kristijanhusak/vim-multiple-cursors'
 
