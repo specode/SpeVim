@@ -27,7 +27,7 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 * nerdtree
 * YouCompleteMe
 * vim-multiple-cursors
-* tComment
+* tcomment_vim
 * ctrlp.vim
 * ctrlp-py-matcher
 * vim-fugitive
@@ -43,6 +43,7 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 * dash.vim
 * vim-godebug
 * auto-ctags.vim
+* vim-plist
 
 ## The useful plugin mapping
 
@@ -89,6 +90,5 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 * `ctrl + h` = `ctrl + w + (left)`
 * **tab** is 4 width tab, no space
 * **clipboard** on macOS is shared with system
-* **sudo save file:** when you forget for edit file with root, you can try w!! save file
 * `[e` move line up
 * `]e` move line down

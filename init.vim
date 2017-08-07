@@ -99,8 +99,6 @@ au FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <b
 " Key map {{{
 nnoremap Y y$
 
-cmap w!! w !sudo tee % >/dev/null
-
 map <C-t> :tabnew<CR>
 
 map <S-H> gT
@@ -194,12 +192,11 @@ let g:phpcomplete_mappings = {
 Plug 'soramugi/auto-ctags.vim'
 let g:auto_ctags_tags_args = '-R  --recurse --sort=yes --output-format=e-ctags'
 let g:auto_ctags_tags_name = '.tags'
-set tags+=./.tags;
-au FileType php autocmd BufWritePost  * :Ctags
+set tags+=./.tags
 
 Plug 'kristijanhusak/vim-multiple-cursors'
 
-Plug 'tComment'
+Plug 'tomtom/tcomment_vim'
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
@@ -287,6 +284,8 @@ let g:gist_post_private = 1
 
 Plug 'rizzatti/dash.vim'
 nmap <silent> <leader>d <Plug>DashSearch
+
+Plug 'darfink/vim-plist'
 
 " color
 Plug 'tomasr/molokai'
