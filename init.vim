@@ -27,6 +27,9 @@ set clipboard=unnamed
 nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
 nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
 
+" Auto reload
+au FocusGained * :checktime
+
 " Syntax
 syntax on
 "}}}
