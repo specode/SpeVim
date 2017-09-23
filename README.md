@@ -13,8 +13,8 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
     * Ag for code search and speed up ctrlp: `brew install the_silver_searcher`
 	* upgrade ctags for tagbar: `brew install ctags`, set PATH `export PATH="$(brew --prefix ctags)/bin:$PATH"`
     * phpctags for tagbar: `brew install phpctags`, set PATH `export PATH="$(brew --prefix phpctags)/bin:$PATH"`
-    * gotags for tagbar: `brew install gotags`
 	* delve for godebug: `brew install go-delve/delve/delve`
+	* link config: `ln -s /path/to/init.vim ~/.config/nvim/init.vim`
 
 2. Install plugins: Open vim and :PlugInstall
 
