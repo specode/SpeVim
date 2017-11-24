@@ -178,6 +178,7 @@ let NERDTreeMapOpenInTab='<C-t>'
 let NERDTreeMapOpenVSplit='<C-v>'
 let NERDTreeMapOpenSplit='<C-x>'
 au BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+nmap <leader>nf :NERDTreeFind<CR>
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } | Plug 'shawncplus/phpcomplete.vim'
 let g:ycm_collect_identifiers_from_tags_files=1
@@ -207,7 +208,7 @@ Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-let g:ctrlp_extensions = ['tag']
+let g:ctrlp_extensions = ['buffertag']
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_working_path_mode = 0
@@ -240,10 +241,17 @@ let g:vim_markdown_folding_disabled = 1
 Plug 'airblade/vim-gitgutter'
 
 Plug 'scrooloose/syntastic'
-let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_php_checkers=['php']
+" let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-let g:go_list_type = "quickfix"
 
 Plug 'rking/ag.vim'
 
