@@ -44,6 +44,7 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 * vim-godebug
 * auto-ctags.vim
 * vim-plist
+* vim-vue
 
 ## The useful plugin mapping
 

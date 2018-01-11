@@ -90,11 +90,11 @@ set incsearch
 "}}}
 
 " Auto commands {{{
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown}    set ft=markdown
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=markdown
 
-au FileType html,javascript,css     set shiftwidth=2
-au FileType html,javascript,css     set tabstop=2
-au FileType html,javascript,css,php set expandtab
+au FileType html,javascript,css,vue.html.javascript.css set shiftwidth=2
+au FileType html,javascript,css,vue.html.javascript.css set tabstop=2
+au FileType html,javascript,css,vue.html.javascript.css,php set expandtab
 
 au FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 " }}}
@@ -297,6 +297,9 @@ Plug 'rizzatti/dash.vim'
 nmap <silent> <leader>d <Plug>DashSearch
 
 Plug 'darfink/vim-plist'
+
+Plug 'posva/vim-vue'
+autocmd BufRead,BufNewFile {*.vue,*.wpy} setlocal filetype=vue.html.javascript.css
 
 " color
 Plug 'tomasr/molokai'
