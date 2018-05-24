@@ -240,18 +240,31 @@ let g:vim_markdown_folding_disabled = 1
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_php_checkers=['php']
-" let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:syntastic_enable_highlighting=1
+let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+let g:syntastic_go_checkers = ['golint', 'errcheck']
+let g:syntastic_html_checkers=['tidy', 'jshint']
+highlight SyntasticErrorSign guifg=white guibg=black
+let g:syntastic_loc_list_height = 5
+function! ToggleErrors()
+    let old_last_winnr = winnr('$')
+    lclose
+    if old_last_winnr == winnr('$')
+        " Nothing was closed, open syntastic error location panel
+        Errors
+    endif
+endfunction
+nnoremap <Leader>s :call ToggleErrors()<cr>
+nnoremap <Leader>sn :lnext<cr>
+nnoremap <Leader>sp :lprevious<cr>
 
 Plug 'rking/ag.vim'
 
@@ -310,6 +323,6 @@ call plug#end()
 color solarized
 " color molokai
 
-set background=light
-" set background=dark
+" set background=light
+set background=dark
 " }}}
