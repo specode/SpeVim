@@ -108,9 +108,9 @@ map <S-H> gT
 map <S-L> gt
 
 if has('nvim')
-  " Hack to get C-h working in neovim
-  nmap <BS> <C-W>h
-  tnoremap <Esc> <C-\><C-n>
+	" Hack to get C-h working in neovim
+	nmap <BS> <C-W>h
+	tnoremap <Esc> <C-\><C-n>
 endif
 map <C-k> <C-w><Up>
 map <C-j> <C-w><Down>
@@ -143,32 +143,32 @@ Plug 'Lokaltog/vim-easymotion'
 
 Plug 'majutsushi/tagbar' | Plug 'vim-php/tagbar-phpctags.vim'
 let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-\ }
+			\ 'ctagstype' : 'go',
+			\ 'kinds'     : [
+			\ 'p:package',
+			\ 'i:imports:1',
+			\ 'c:constants',
+			\ 'v:variables',
+			\ 't:types',
+			\ 'n:interfaces',
+			\ 'w:fields',
+			\ 'e:embedded',
+			\ 'm:methods',
+			\ 'r:constructor',
+			\ 'f:functions'
+			\ ],
+			\ 'sro' : '.',
+			\ 'kind2scope' : {
+			\ 't' : 'ctype',
+			\ 'n' : 'ntype'
+			\ },
+			\ 'scope2kind' : {
+			\ 'ctype' : 't',
+			\ 'ntype' : 'n'
+			\ },
+			\ 'ctagsbin'  : 'gotags',
+			\ 'ctagsargs' : '-sort -silent'
+			\ }
 nnoremap <leader>tb :TagbarToggle<CR>
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -190,8 +190,8 @@ au FileType python        setlocal omnifunc=pythoncomplete#Complete
 au FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
 au FileType php           setlocal omnifunc=phpcomplete#CompletePHP
 let g:phpcomplete_mappings = {
-  \ 'jump_to_def': 'gd',
-  \ }
+			\ 'jump_to_def': 'gd',
+			\ }
 
 Plug 'soramugi/auto-ctags.vim'
 let g:auto_ctags_tags_args = '-R  --recurse --sort=yes --output-format=e-ctags'
@@ -216,10 +216,10 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_lazy_update = 50
 let g:ctrlp_max_files = 0
 let g:ctrlp_custom_ignore = {
-	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
-	\ 'file': '\v\.(exe|so|dll)$',
-	\ 'link': 'some_bad_symbolic_links',
-	\ }
+			\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+			\ 'file': '\v\.(exe|so|dll)$',
+			\ 'link': 'some_bad_symbolic_links',
+			\ }
 if executable("ag")
 	set grepprg=ag\ --nogroup\ --nocolor
 	let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.svn'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
@@ -255,12 +255,12 @@ let g:syntastic_html_checkers=['tidy', 'jshint']
 highlight SyntasticErrorSign guifg=white guibg=black
 let g:syntastic_loc_list_height = 5
 function! ToggleErrors()
-    let old_last_winnr = winnr('$')
-    lclose
-    if old_last_winnr == winnr('$')
-        " Nothing was closed, open syntastic error location panel
-        Errors
-    endif
+	let old_last_winnr = winnr('$')
+	lclose
+	if old_last_winnr == winnr('$')
+		" Nothing was closed, open syntastic error location panel
+		Errors
+	endif
 endfunction
 nnoremap <Leader>s :call ToggleErrors()<cr>
 nnoremap <Leader>sn :lnext<cr>
@@ -313,6 +313,9 @@ Plug 'darfink/vim-plist'
 
 Plug 'posva/vim-vue'
 autocmd BufRead,BufNewFile {*.vue,*.wpy} setlocal filetype=vue.html.javascript.css
+
+Plug 'Chiel92/vim-autoformat'
+au BufWrite * :Autoformat
 
 " color
 Plug 'tomasr/molokai'
