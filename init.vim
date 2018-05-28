@@ -89,15 +89,6 @@ set incsearch
 
 "}}}
 
-" Auto commands {{{
-" au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=markdown
-" au FileType html,javascript,css,vue.html.javascript.css set shiftwidth=2
-" au FileType html,javascript,css,vue.html.javascript.css set tabstop=2
-" au FileType html,javascript,css,vue.html.javascript.css,php set expandtab
-
-au FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-" }}}
-
 " Key map {{{
 nnoremap Y y$
 
@@ -117,22 +108,6 @@ map <C-l> <C-w><Right>
 map <C-h> <C-w><Left>
 
 let mapleader = ","
-" }}}
-
-" Function {{{
-
-function! StripTrailingWhitespace()
-	" Preparation: save last search, and cursor position.
-	let _s=@/
-	let l = line(".")
-	let c = col(".")
-	" do the business:
-	%s/\s\+$//e
-	" clean up: restore previous search history, and cursor position
-	let @/=_s
-	call cursor(l, c)
-endfunction
-
 " }}}
 
 " Plugins {{{
