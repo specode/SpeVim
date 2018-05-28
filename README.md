@@ -9,42 +9,15 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 ## Quick Start (macOS)
 
 1. Install plugins dependencies:
-    * vim-plug: see https://github.com/junegunn/vim-plug
-    * Ag for code search and speed up ctrlp: `brew install the_silver_searcher`
+	* vim-plug: see https://github.com/junegunn/vim-plug
+	* Ag for code search and speed up ctrlp: `brew install the_silver_searcher`
 	* upgrade ctags for tagbar: `brew install ctags`, set PATH `export PATH="$(brew --prefix ctags)/bin:$PATH"`
-    * phpctags for tagbar: `brew install phpctags`, set PATH `export PATH="$(brew --prefix phpctags)/bin:$PATH"`
+	* phpctags for tagbar: `brew install phpctags`, set PATH `export PATH="$(brew --prefix phpctags)/bin:$PATH"`
 	* delve for godebug: `brew install go-delve/delve/delve`
 	* link config: `ln -s /path/to/init.vim ~/.config/nvim/init.vim`
 
+
 2. Install plugins: Open vim and :PlugInstall
-
-## Plugin List
-
-* vim-plug
-* vim-easymotion
-* tagbar
-* tagbar-phpctags.vim
-* nerdtree
-* YouCompleteMe
-* vim-multiple-cursors
-* tcomment_vim
-* ctrlp.vim
-* ctrlp-py-matcher
-* vim-fugitive
-* vim-markdown
-* syntastic
-* ag.vim
-* vim-airline
-* vim-airline-themes
-* wildfire.vim
-* vim-go
-* gist-vim
-* webapi-vim
-* dash.vim
-* vim-godebug
-* auto-ctags.vim
-* vim-plist
-* vim-vue
 
 ## The useful plugin mapping
 
