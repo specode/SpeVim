@@ -90,11 +90,10 @@ set incsearch
 "}}}
 
 " Auto commands {{{
-au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=markdown
-
-au FileType html,javascript,css,vue.html.javascript.css set shiftwidth=2
-au FileType html,javascript,css,vue.html.javascript.css set tabstop=2
-au FileType html,javascript,css,vue.html.javascript.css,php set expandtab
+" au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=markdown
+" au FileType html,javascript,css,vue.html.javascript.css set shiftwidth=2
+" au FileType html,javascript,css,vue.html.javascript.css set tabstop=2
+" au FileType html,javascript,css,vue.html.javascript.css,php set expandtab
 
 au FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 " }}}
@@ -316,6 +315,9 @@ autocmd BufRead,BufNewFile {*.vue,*.wpy} setlocal filetype=vue.html.javascript.c
 
 Plug 'Chiel92/vim-autoformat'
 au BufWrite * :Autoformat
+
+Plug 'plasticboy/vim-markdown' | Plug 'godlygeek/tabular'
+let g:vim_markdown_no_default_key_mappings = 1
 
 " color
 Plug 'tomasr/molokai'
