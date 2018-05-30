@@ -186,7 +186,7 @@ let g:ctrlp_extensions = ['buffertag']
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_working_path_mode = 0
-let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_lazy_update = 50
 let g:ctrlp_max_files = 0
 let g:ctrlp_custom_ignore = {
@@ -240,7 +240,10 @@ nnoremap <Leader>s :call ToggleErrors()<cr>
 nnoremap <Leader>sn :lnext<cr>
 nnoremap <Leader>sp :lprevious<cr>
 
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
+if executable('ag')
+	let g:ackprg = 'ag --vimgrep --ignore ''.git'' --ignore ''.svn'' --ignore ''.DS_Store'' --ignore ''node_modules'' --ignore ''*log*'' '
+endif
 
 Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#left_sep = ' '
@@ -294,6 +297,8 @@ au BufWrite * :Autoformat
 Plug 'plasticboy/vim-markdown' | Plug 'godlygeek/tabular'
 let g:vim_markdown_no_default_key_mappings = 1
 
+Plug 'pangloss/vim-javascript'
+
 " color
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
@@ -302,6 +307,8 @@ call plug#end()
 
 color solarized
 " color molokai
+" let g:molokai_original = 1
+" let g:rehash256 = 1
 
 " set background=light
 set background=dark
