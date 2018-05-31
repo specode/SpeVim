@@ -48,8 +48,6 @@ set softtabstop=4
 set shiftwidth=4
 set noexpandtab
 
-set pastetoggle=<F10>
-
 set autoindent
 set cindent
 set cinoptions=:s,ps,ts,cs
@@ -115,7 +113,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Lokaltog/vim-easymotion'
 
-Plug 'majutsushi/tagbar' | Plug 'vim-php/tagbar-phpctags.vim'
+Plug 'majutsushi/tagbar'
 let g:tagbar_type_go = {
 			\ 'ctagstype' : 'go',
 			\ 'kinds'     : [
@@ -154,7 +152,7 @@ let NERDTreeMapOpenSplit='<C-x>'
 au BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 nmap <leader>nf :NERDTreeFind<CR>
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } | Plug 'shawncplus/phpcomplete.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_seed_identifiers_with_syntax = 1
 au FileType css           setlocal omnifunc=csscomplete#CompleteCSS
@@ -162,15 +160,12 @@ au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 au FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
 au FileType python        setlocal omnifunc=pythoncomplete#Complete
 au FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
-au FileType php           setlocal omnifunc=phpcomplete#CompletePHP
-let g:phpcomplete_mappings = {
-			\ 'jump_to_def': 'gd',
-			\ }
 
-Plug 'soramugi/auto-ctags.vim'
-let g:auto_ctags_tags_args = '-R  --recurse --sort=yes --output-format=e-ctags'
-let g:auto_ctags_tags_name = '.tags'
-set tags+=./.tags
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+au FileType php nmap gd :call phpcd#JumpToDefinition('normal')<CR>
+au FileType php nmap gb :call phpcd#JumpBack()<CR>
+au FileType php nmap <Leader>dx :call phpcd#JumpToDefinition('split')<CR>
+au FileType php nmap <Leader>dv :call phpcd#JumpToDefinition('vsplit')<CR>
 
 Plug 'kristijanhusak/vim-multiple-cursors'
 
@@ -259,7 +254,7 @@ let g:airline#extensions#paste#symbol      = 'ρ'
 
 Plug 'gcmt/wildfire.vim'
 
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } | Plug 'jodosha/vim-godebug'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } | Plug 'jodosha/vim-godebug'
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -292,7 +287,7 @@ Plug 'posva/vim-vue'
 autocmd BufRead,BufNewFile {*.vue,*.wpy} setlocal filetype=vue.html.javascript.css
 
 Plug 'Chiel92/vim-autoformat'
-au BufWrite * :Autoformat
+" au BufWrite * :Autoformat
 
 Plug 'plasticboy/vim-markdown' | Plug 'godlygeek/tabular'
 let g:vim_markdown_no_default_key_mappings = 1

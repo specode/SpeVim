@@ -4,16 +4,16 @@ This is my personally use neovim config.
 
 My main work on Go, PHP, You can fork this repositorie and modify it until you like.
 
-*The config only test on macOS + iTerm2 + neovim.*
+*The config only test on macOS + iTerm2 + neovim + php 7.*
 
 ## Quick Start (macOS)
 
 1. Install plugins dependencies:
 	* vim-plug: see https://github.com/junegunn/vim-plug
 	* Ag for code search and speed up ctrlp: `brew install the_silver_searcher`
-	* upgrade ctags for tagbar: `brew install ctags`, set PATH `export PATH="$(brew --prefix ctags)/bin:$PATH"`
-	* phpctags for tagbar: `brew install phpctags`, set PATH `export PATH="$(brew --prefix phpctags)/bin:$PATH"`
-	* delve for godebug: `brew install go-delve/delve/delve`
+	* upgrade ctags for tagbar: `brew install ctags`
+	* delve for godebug: `go get -u github.com/derekparker/delve/cmd/dlv`
+	* phpcd for php complete & jump to define see: https://github.com/lvht/phpcd.vim#installation--usage
 	* link config: `ln -s /path/to/init.vim ~/.config/nvim/init.vim`
 
 
@@ -30,6 +30,7 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 	* `ctrl + t` nerdtree & ctrlp: open in tab
 	* `ctrl + v` nerdtree & ctrlp: Open V split
 	* `ctrl + x` nerdtree & ctrlp: Open X split
+	* `<leader>nf` nerdtree force file
 * Git
 	* `<leader>gs` vim-fugitive: `git status`
 	* `<leader>gd` vim-fugitive: `git diff`
@@ -49,8 +50,30 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 	* `<leader>dt` vim-go: `go-def-tab`
 	* `<leader>dp` vim-godebug: `:GoToggleBreakpoint`
 	* `<leader>db` vim-godebug: `:GoDebug`
-* Tagbar
+* PHP
+	* `gd` phpcd: jump to define
+	* `gb` phpcd: jump back
+	* `<leader>dx` phpcd: jump to define split
+	* `<leader>dv` phpcd: jump to define vsplit
+* Tagbar for tags list
 	* Toggle: `<leader>tb`
+* tcomment for comment
+	* comment: `//`
+* vim-fugitive for git
+	* `<leader>gs` git status
+	* `<leader>gd` git diff
+	* `<leader>gw` git write
+	* `<leader>gc` git commit
+	* `<leader>gp` git push
+	* `<leader>gb` git blame
+	* `<leader>gl` git log
+	* `<leader>gg` git gutter toggle
+* syntastic for error dashboard
+	* `<leader>s` show error list
+	* `<leader>sn` next error
+	* `<leader>sp` prev error
+* Dash for show document
+	* `<leader>d` dash search
 
 ## Tips
 
@@ -66,3 +89,4 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 * **clipboard** on macOS is shared with system
 * `[e` move line up
 * `]e` move line down
+* `Ack:` for global search
