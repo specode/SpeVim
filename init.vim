@@ -292,7 +292,6 @@ autocmd BufRead,BufNewFile {*.vue,*.wpy} setlocal filetype=vue.html.javascript.c
 
 Plug 'Chiel92/vim-autoformat'
 aug auto_format_onsave
-	au!
 	au BufWritePre {*.html,*.php} :Autoformat
 	au BufWritePost {*.html,*.php} :execute "normal! O\<ESC>dd"
 aug end
