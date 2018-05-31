@@ -9,6 +9,7 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 ## Quick Start (macOS)
 
 1. Install plugins dependencies:
+	* neovim python support: `pip2 install neovim` && `pip3 install neovim`
 	* vim-plug: see https://github.com/junegunn/vim-plug
 	* Ag for code search and speed up ctrlp: `brew install the_silver_searcher`
 	* upgrade ctags for tagbar: `brew install ctags`
