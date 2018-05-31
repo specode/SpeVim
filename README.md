@@ -91,3 +91,4 @@ My main work on Go, PHP, You can fork this repositorie and modify it until you l
 * `[e` move line up
 * `]e` move line down
 * `Ack:` for global search
+* using :Gist for manage github gist

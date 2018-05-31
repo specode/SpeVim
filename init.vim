@@ -108,6 +108,10 @@ map <C-h> <C-w><Left>
 let mapleader = ","
 " }}}
 
+" autocmd {{{
+autocmd FileType php set tabstop=4 | set shiftwidth=4 | set expandtab
+" }}}
+
 " Plugins {{{
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -287,7 +291,11 @@ Plug 'posva/vim-vue'
 autocmd BufRead,BufNewFile {*.vue,*.wpy} setlocal filetype=vue.html.javascript.css
 
 Plug 'Chiel92/vim-autoformat'
-" au BufWrite * :Autoformat
+aug auto_format_onsave
+	au!
+	au BufWritePre {*.html,*.php} :Autoformat
+	au BufWritePost {*.html,*.php} :execute "normal! O\<ESC>dd"
+aug end
 
 Plug 'plasticboy/vim-markdown' | Plug 'godlygeek/tabular'
 let g:vim_markdown_no_default_key_mappings = 1
