@@ -301,16 +301,12 @@ let g:vim_markdown_no_default_key_mappings = 1
 
 Plug 'pangloss/vim-javascript'
 
-" color
-Plug 'tomasr/molokai'
-Plug 'altercation/vim-colors-solarized'
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 
-color solarized
-" color molokai
-" let g:molokai_original = 1
-" let g:rehash256 = 1
+" colorscheme blackboard
+colorscheme solarized
 
 " set background=light
 set background=dark
