@@ -156,7 +156,8 @@ let NERDTreeMapOpenSplit='<C-x>'
 au BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 nmap <leader>nf :NERDTreeFind<CR>
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --java-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer' }
 let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_seed_identifiers_with_syntax = 1
 au FileType css           setlocal omnifunc=csscomplete#CompleteCSS
@@ -290,11 +291,14 @@ Plug 'darfink/vim-plist'
 Plug 'posva/vim-vue'
 autocmd BufRead,BufNewFile {*.vue,*.wpy} setlocal filetype=vue.html.javascript.css
 
-Plug 'Chiel92/vim-autoformat'
-" aug auto_format_onsave
-" 	au BufWritePre {*.html,*.php} :Autoformat
-" 	au BufWritePost {*.html,*.php} :execute "normal! O\<ESC>dd"
-" aug end
+Plug 'sbdchd/neoformat'
+let g:neoformat_basic_format_align = 1
+let g:neoformat_basic_format_retab = 0
+let g:neoformat_basic_format_trim = 1
+augroup fmt
+	autocmd!
+	autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 Plug 'plasticboy/vim-markdown' | Plug 'godlygeek/tabular'
 let g:vim_markdown_no_default_key_mappings = 1
