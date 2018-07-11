@@ -156,8 +156,7 @@ let NERDTreeMapOpenSplit='<C-x>'
 au BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 nmap <leader>nf :NERDTreeFind<CR>
 
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --java-completer' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --java-completer' }
 let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_seed_identifiers_with_syntax = 1
 au FileType css           setlocal omnifunc=csscomplete#CompleteCSS
@@ -165,6 +164,9 @@ au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 au FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
 au FileType python        setlocal omnifunc=pythoncomplete#Complete
 au FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
+let g:syntastic_java_checkers = []
+au FileType java nnoremap gd :YcmCompleter GoTo<CR>
+au FileType java nnoremap gb <C-o>
 
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 au FileType php nmap gd :call phpcd#JumpToDefinition('normal')<CR>
