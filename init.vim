@@ -307,6 +307,8 @@ let g:vim_markdown_no_default_key_mappings = 1
 
 Plug 'pangloss/vim-javascript'
 
+Plug 'cespare/vim-toml'
+
 Plug 'flazz/vim-colorschemes'
 
 call plug#end()
