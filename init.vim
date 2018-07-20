@@ -273,6 +273,8 @@ au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 au FileType go nmap <Leader>e <Plug>(go-rename)
+au FileType go nmap <Leader>f <Plug>(go-referrers)
+au FileType go nmap <Leader>i <Plug>(go-implements)
 au FileType go nmap gd :GoDef<CR>
 au FileType go nmap gb :GoDefPop<CR>
 au FileType go nmap <Leader>dx <Plug>(go-def-split)
