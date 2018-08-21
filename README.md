@@ -16,6 +16,7 @@ _The config only test on macOS + iTerm2 + neovim + php 7._
     - upgrade ctags for tagbar: `brew install ctags`
     - delve for godebug: `go get -u github.com/derekparker/delve/cmd/dlv`
     - phpcd for php complete & jump to define see: https://github.com/lvht/phpcd.vim#installation--usage
+    - phpstan for php static analysis: `composer global require phpstan/phpstan`
     - auto format support by neoformat: https://github.com/sbdchd/neoformat
       - php `brew install php-cs-fixer`
       - html & javascript & css & json `npm -g install js-beautify`
