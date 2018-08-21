@@ -74,9 +74,9 @@ _The config only test on macOS + iTerm2 + neovim + php 7._
   - `<leader>gl` git log
   - `<leader>gg` git gutter toggle
 - syntastic for error dashboard
-  - `<leader>s` show error list
-  - `<leader>sn` next error
-  - `<leader>sp` prev error
+  - `<leader>e` show error list
+  - `<leader>en` next error
+  - `<leader>ep` prev error
 - Dash for show document
   - `<leader>d` dash search
 

@@ -238,9 +238,9 @@ function! ToggleErrors()
 		Errors
 	endif
 endfunction
-nnoremap <Leader>s :call ToggleErrors()<cr>
-nnoremap <Leader>sn :lnext<cr>
-nnoremap <Leader>sp :lprevious<cr>
+nnoremap <Leader>e :call ToggleErrors()<cr>
+nnoremap <Leader>en :lnext<cr>
+nnoremap <Leader>ep :lprevious<cr>
 
 Plug 'mileszs/ack.vim'
 if executable('ag')
