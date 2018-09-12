@@ -297,12 +297,14 @@ Plug 'posva/vim-vue'
 autocmd BufRead,BufNewFile {*.vue,*.wpy} setlocal filetype=vue.html.javascript.css
 
 Plug 'sbdchd/neoformat'
+let g:neoformat_try_formatprg = 1
 let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 0
 let g:neoformat_basic_format_trim = 1
+let g:neoformat_enabled_go = []
 augroup fmt
 	autocmd!
-	autocmd BufWritePre * undojoin | Neoformat
+	autocmd BufWritePre * silent! undojoin | Neoformat
 augroup END
 
 Plug 'plasticboy/vim-markdown' | Plug 'godlygeek/tabular'
