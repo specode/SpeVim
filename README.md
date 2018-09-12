@@ -79,6 +79,8 @@ _The config only test on macOS + iTerm2 + neovim + php 7._
   - `<leader>ep` prev error
 - Dash for show document
   - `<leader>d` dash search
+- FlyGrep
+  - `<leader>s` for search
 
 ## Tips
 

@@ -314,6 +314,9 @@ Plug 'cespare/vim-toml'
 
 Plug 'flazz/vim-colorschemes'
 
+Plug 'wsdjeg/FlyGrep.vim'
+nnoremap <leader>s :FlyGrep<cr>
+
 call plug#end()
 
 " colorscheme blackboard
