@@ -261,14 +261,19 @@ let g:airline#extensions#paste#symbol      = 'ρ'
 
 Plug 'gcmt/wildfire.vim'
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } | Plug 'jodosha/vim-godebug'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
 let g:go_def_mapping_enabled = 0
 let g:go_def_reuse_buffer = 1
+let g:go_auto_type_info = 1
+set updatetime=50
+" TODO: maybe bug
+let g:go_gocode_propose_source = 0
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
