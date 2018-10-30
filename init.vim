@@ -216,32 +216,7 @@ let g:vim_markdown_folding_disabled = 1
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'vim-syntastic/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_highlighting=1
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_php_checkers=['php', 'phpstan']
-let g:syntastic_go_checkers = ['govet', 'golint', 'errcheck']
-let g:syntastic_html_checkers=['tidy', 'jshint']
-highlight SyntasticErrorSign guifg=white guibg=black
-let g:syntastic_loc_list_height = 5
-function! ToggleErrors()
-	let old_last_winnr = winnr('$')
-	lclose
-	if old_last_winnr == winnr('$')
-		" Nothing was closed, open syntastic error location panel
-		Errors
-	endif
-endfunction
-nnoremap <Leader>e :call ToggleErrors()<cr>
-nnoremap <Leader>en :lnext<cr>
-nnoremap <Leader>ep :lprevious<cr>
+Plug 'w0rp/ale'
 
 Plug 'mileszs/ack.vim'
 if executable('ag')
