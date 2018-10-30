@@ -225,8 +225,9 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_highlighting=1
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_php_checkers=['php', 'phpstan']
-let g:syntastic_go_checkers = ['golint', 'errcheck']
+let g:syntastic_go_checkers = ['govet', 'golint', 'errcheck']
 let g:syntastic_html_checkers=['tidy', 'jshint']
 highlight SyntasticErrorSign guifg=white guibg=black
 let g:syntastic_loc_list_height = 5
@@ -271,6 +272,7 @@ let g:go_highlight_extra_types = 1
 let g:go_def_mapping_enabled = 0
 let g:go_def_reuse_buffer = 1
 let g:go_auto_type_info = 1
+let g:go_fmt_command = "goimports"
 set updatetime=50
 " TODO: maybe bug
 let g:go_gocode_propose_source = 0
