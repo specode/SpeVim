@@ -164,7 +164,6 @@ au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 au FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
 au FileType python        setlocal omnifunc=pythoncomplete#Complete
 au FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
-let g:syntastic_java_checkers = []
 au FileType java nnoremap gd :YcmCompleter GoTo<CR>
 au FileType java nnoremap gb <C-o>
 
