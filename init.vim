@@ -205,10 +205,11 @@ nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gl :Glog<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
-nnoremap <silent> <leader>gg :GitGutterToggle<CR>
+
+Plug 'junegunn/gv.vim'
+nnoremap <silent> <leader>gl :GV<CR>
 
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1

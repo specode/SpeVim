@@ -72,7 +72,6 @@ _The config only test on macOS + iTerm2 + neovim + php 7._
   - `<leader>gp` git push
   - `<leader>gb` git blame
   - `<leader>gl` git log
-  - `<leader>gg` git gutter toggle
 - Dash for show document
   - `<leader>d` dash search
 - FlyGrep
