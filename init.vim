@@ -249,8 +249,6 @@ let g:go_def_reuse_buffer = 1
 let g:go_auto_type_info = 1
 let g:go_fmt_command = "goimports"
 set updatetime=50
-" TODO: maybe bug
-let g:go_gocode_propose_source = 0
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
