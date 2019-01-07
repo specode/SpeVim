@@ -156,22 +156,21 @@ let NERDTreeMapOpenSplit='<C-x>'
 au BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 nmap <leader>nf :NERDTreeFind<CR>
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --java-completer' }
-let g:ycm_collect_identifiers_from_tags_files=1
-let g:ycm_seed_identifiers_with_syntax = 1
-au FileType css           setlocal omnifunc=csscomplete#CompleteCSS
-au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-au FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
-au FileType python        setlocal omnifunc=pythoncomplete#Complete
-au FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
-au FileType java nnoremap gd :YcmCompleter GoTo<CR>
-au FileType java nnoremap gb <C-o>
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
+inoremap <silent><expr> <TAB>
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ deoplete#mappings#manual_complete()
+function! s:check_back_space() abort "{{{
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
 
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-au FileType php nmap gd :call phpcd#JumpToDefinition('normal')<CR>
-au FileType php nmap gb :call phpcd#JumpBack()<CR>
-au FileType php nmap <Leader>dx :call phpcd#JumpToDefinition('split')<CR>
-au FileType php nmap <Leader>dv :call phpcd#JumpToDefinition('vsplit')<CR>
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#unimported_packages = 1
 
 Plug 'kristijanhusak/vim-multiple-cursors'
 
@@ -304,6 +303,6 @@ call plug#end()
 " colorscheme blackboard
 colorscheme solarized
 
-" set background=light
-set background=dark
+set background=light
+" set background=dark
 " }}}
