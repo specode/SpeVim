@@ -172,6 +172,10 @@ let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:deoplete#sources#go#unimported_packages = 1
 
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
+let g:deoplete#ignore_sources.php = ['omni']
+
 Plug 'kristijanhusak/vim-multiple-cursors'
 
 Plug 'tomtom/tcomment_vim'

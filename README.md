@@ -15,6 +15,7 @@ _The config only test on macOS + iTerm2 + neovim + php 7._
     - Ag for code search and speed up ctrlp: `brew install the_silver_searcher`
     - upgrade ctags for tagbar: `brew install ctags`
     - delve for godebug: `go get -u github.com/derekparker/delve/cmd/dlv`
+	- PHP Support: phpcd see https://github.com/lvht/phpcd.vim
     - auto format support by neoformat: https://github.com/sbdchd/neoformat
       - html & javascript & css & json `npm -g install js-beautify`
       - shell `go get -u mvdan.cc/sh/cmd/shfmt`
