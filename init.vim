@@ -83,6 +83,15 @@ autocmd FileType php set tabstop=4 | set shiftwidth=4 | set expandtab
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Code complete {{{
+Plug 'autozimu/LanguageClient-neovim', {
+			\ 'branch': 'next',
+			\ 'do': 'bash install.sh',
+			\ }
+let g:LanguageClient_serverCommands = {
+			\ 'dart': ['dart_language_server'],
+			\ }
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
 inoremap <silent><expr> <TAB>
@@ -152,6 +161,9 @@ Plug 'pangloss/vim-javascript'
 
 " TOML
 Plug 'cespare/vim-toml'
+
+" Dart
+Plug 'dart-lang/dart-vim-plugin'
 " }}}
 
 " Base Tools {{{
