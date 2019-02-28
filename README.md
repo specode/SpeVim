@@ -40,12 +40,19 @@ _The config only test on macOS + iTerm2 + neovim + php 7._
   - `<leader>gd` vim-fugitive: `git diff`
   - `<leader>gc` vim-fugitive: `git commit`
   - `<leader>gw` vim-fugitive: `git add` \* `<leader>gl` vim-fugitive: `git log`
+- LanguageClient
+  - `<leader>lc` show context menu
+  - `<leader>gd` jump to define
+  - `<leader>gb` jump back
+  - `<leader>e` rename
 - Go
   - `<leader>r` vim-go: `go run`
   - `<leader>b` vim-go: `go build`
   - `<leader>t` vim-go: `go test`
   - `<leader>c` vim-go: go-coverage
-  - `<leader>gd` vim-go: `godoc`
+  - `<leader>e` vim-go: go-rename
+  - `<leader>f` vim-go: go-referrers
+  - `<leader>i` vim-go: go-implements
   - `gd` vim-go: `:GoDef`
   - `gb` vim-go: `:GoDefPop`
   - `<leader>dx` vim-go: `go-def-split`

@@ -90,7 +90,10 @@ Plug 'autozimu/LanguageClient-neovim', {
 let g:LanguageClient_serverCommands = {
 			\ 'dart': ['dart_language_server'],
 			\ }
+nnoremap <silent> <leader>lc :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <leader>e :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> gb <C-O>
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
