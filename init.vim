@@ -78,6 +78,7 @@ let mapleader = ","
 " Autocmd {{{
 autocmd FileType php set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType dart set tabstop=2 | set shiftwidth=2 | set expandtab
+autocmd FileType proto set tabstop=2 | set shiftwidth=2 | set expandtab
 " }}}
 
 " Plugins {{{
