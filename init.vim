@@ -312,7 +312,7 @@ set nofoldenable
 
 set incsearch
 
-set background=light
-" set background=dark
+" set background=light
+set background=dark
 colorscheme solarized
 "}}}
