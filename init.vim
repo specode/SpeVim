@@ -134,6 +134,7 @@ let g:go_def_mapping_enabled = 0
 let g:go_fmt_autosave = 0
 let g:go_mod_fmt_autosave = 0
 let g:go_updatetime = 500
+let g:go_def_mode = 'godef'
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
