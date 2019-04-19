@@ -188,7 +188,7 @@ Plug 'kristijanhusak/vim-multiple-cursors'
 
 Plug 'mileszs/ack.vim'
 if executable('ag')
-	let g:ackprg = 'ag --vimgrep --ignore ''.git'' --ignore ''.svn'' --ignore ''.DS_Store'' --ignore ''node_modules'' --ignore ''*log*'' '
+	let g:ackprg = 'ag --vimgrep -a --ignore ''.git'' --ignore ''.svn'' --ignore ''.DS_Store'' --ignore ''node_modules'' --ignore ''*log*'' '
 endif
 
 Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
