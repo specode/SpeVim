@@ -79,8 +79,6 @@ _The config only test on macOS + iTerm2 + neovim + php 7._
   - `<leader>gl` git log
 - Dash for show document
   - `<leader>d` dash search
-- FlyGrep
-  - `<leader>s` for search
 
 ## Tips
 

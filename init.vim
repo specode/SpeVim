@@ -225,9 +225,6 @@ let g:airline#extensions#linecolumn#prefix = '¶'
 let g:airline#extensions#paste#symbol      = 'ρ'
 
 Plug 'flazz/vim-colorschemes'
-
-Plug 'wsdjeg/FlyGrep.vim'
-nnoremap <leader>s :FlyGrep<cr>
 " }}}
 
 " Program tools {{{
