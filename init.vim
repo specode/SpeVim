@@ -91,6 +91,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 			\ }
 let g:LanguageClient_serverCommands = {
 			\ 'dart': ['dart_language_server'],
+			\ 'go': ['gopls'],
 			\ }
 nnoremap <silent> <leader>lc :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
@@ -109,10 +110,10 @@ function! s:check_back_space() abort "{{{
 endfunction"}}}
 
 " Go
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#unimported_packages = 1
+" Plug 'zchee/deoplete-go', { 'do': 'make'}
+" let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+" let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+" let g:deoplete#sources#go#unimported_packages = 1
 
 " PHP
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
@@ -134,7 +135,8 @@ let g:go_def_mapping_enabled = 0
 let g:go_fmt_autosave = 0
 let g:go_mod_fmt_autosave = 0
 let g:go_updatetime = 500
-let g:go_def_mode = 'godef'
+" let g:go_def_mode = 'godef'
+let g:go_def_mode = 'gopls'
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
