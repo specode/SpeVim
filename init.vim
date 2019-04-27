@@ -85,72 +85,40 @@ autocmd FileType proto set tabstop=2 | set shiftwidth=2 | set expandtab
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Code complete {{{
-Plug 'autozimu/LanguageClient-neovim', {
-			\ 'branch': 'next',
-			\ 'do': 'bash install.sh',
-			\ }
-let g:LanguageClient_serverCommands = {
-			\ 'dart': ['dart_language_server'],
-			\ 'go': ['gopls'],
-			\ }
-nnoremap <silent> <leader>lc :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <leader>e :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> gb <C-O>
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-let g:deoplete#enable_at_startup = 1
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 inoremap <silent><expr> <TAB>
 			\ pumvisible() ? "\<C-n>" :
 			\ <SID>check_back_space() ? "\<TAB>" :
-			\ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort "{{{
+			\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
 	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
+	return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" Go
-" Plug 'zchee/deoplete-go', { 'do': 'make'}
-" let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-" let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-" let g:deoplete#sources#go#unimported_packages = 1
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gb <C-O>
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-" PHP
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
-let g:deoplete#ignore_sources.php = ['omni']
+nmap <leader>rn <Plug>(coc-rename)
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
+	endif
+endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 " }}}
-
-" Language support {{{
-" Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-let g:go_def_reuse_buffer = 1
-let g:go_def_mapping_enabled = 0
-let g:go_fmt_autosave = 0
-let g:go_mod_fmt_autosave = 0
-let g:go_updatetime = 500
-" let g:go_def_mode = 'godef'
-let g:go_def_mode = 'gopls'
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
-au FileType go nmap <Leader>e <Plug>(go-rename)
-au FileType go nmap <Leader>f <Plug>(go-referrers)
-au FileType go nmap <Leader>i <Plug>(go-implements)
-au FileType go nmap gd :GoDef<CR>
-au FileType go nmap gb :GoDefPop<CR>
-au FileType go nmap <Leader>dx <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-au FileType go nmap <Leader>dp :GoToggleBreakpoint<CR>
-au FileType go nmap <Leader>db :GoDebug<CR>
 
 " plist
 Plug 'darfink/vim-plist'
