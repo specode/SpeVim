@@ -97,7 +97,10 @@ function! s:check_back_space() abort
 	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gd :call CocActionAsync('jumpDefinition')<CR>
+nmap <silent> <leader>dt :call CocActionAsync('jumpDefinition', 'tabe')<CR>
+nmap <silent> <leader>dv :call CocActionAsync('jumpDefinition', 'vsplit')<CR>
+nmap <silent> <leader>dx :call CocActionAsync('jumpDefinition', 'split')<CR>
 nmap <silent> gb <C-O>
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -145,7 +148,7 @@ Plug 'dart-lang/dart-vim-plugin'
 " Base Tools {{{
 Plug 'Lokaltog/vim-easymotion'
 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 nmap <silent> <C-e> :NERDTreeToggle<CR>
 let NERDTreeMapRefreshRoot='<C-r>'
 let NERDTreeMapOpenInTab='<C-t>'
@@ -198,9 +201,6 @@ Plug 'flazz/vim-colorschemes'
 " }}}
 
 " Program tools {{{
-Plug 'majutsushi/tagbar'
-nnoremap <leader>tb :TagbarToggle<CR>
-
 Plug 'tomtom/tcomment_vim'
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
