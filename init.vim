@@ -30,6 +30,9 @@ nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
 " Auto reload
 au FocusGained * :checktime
 
+" Update time
+set updatetime=300
+
 " Syntax
 syntax on
 "}}}
