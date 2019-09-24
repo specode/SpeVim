@@ -130,13 +130,17 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 Plug 'darfink/vim-plist'
 
 " Vue
-Plug 'posva/vim-vue'
-autocmd BufRead,BufNewFile {*.vue,*.wpy} setlocal filetype=vue.html.javascript.css
+" Plug 'posva/vim-vue'
+" autocmd BufRead,BufNewFile {*.vue,*.wpy} setlocal filetype=vue.html.javascript.css
+" autocmd FileType vue syntax sync fromstart
+" let g:vue_disable_pre_processors=1
 
 " Markdown
 Plug 'plasticboy/vim-markdown' | Plug 'godlygeek/tabular'
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_no_default_key_mappings = 1
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " Javascript
 Plug 'pangloss/vim-javascript'
@@ -210,7 +214,7 @@ vnoremap // :TComment<CR>
 
 Plug 'sbdchd/neoformat'
 let g:neoformat_try_formatprg = 1
-let g:neoformat_basic_format_align = 0
+let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 0
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_enabled_go = ['goimports', 'gofmt']
@@ -262,7 +266,6 @@ set laststatus=2
 set splitbelow
 set splitright
 
-set mouse=a
 set mousehide
 
 set cursorline
