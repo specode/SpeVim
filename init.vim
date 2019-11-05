@@ -214,7 +214,7 @@ vnoremap // :TComment<CR>
 
 Plug 'sbdchd/neoformat'
 let g:neoformat_try_formatprg = 1
-let g:neoformat_basic_format_align = 1
+let g:neoformat_basic_format_align = 0
 let g:neoformat_basic_format_retab = 0
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_enabled_go = ['goimports', 'gofmt']
