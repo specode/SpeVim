@@ -121,6 +121,7 @@ function! s:show_documentation()
 endfunction
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd BufWritePre *.go :call CocAction('organizeImport')
 
 let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
@@ -217,7 +218,6 @@ let g:neoformat_try_formatprg = 1
 let g:neoformat_basic_format_align = 0
 let g:neoformat_basic_format_retab = 0
 let g:neoformat_basic_format_trim = 1
-let g:neoformat_enabled_go = ['goimports', 'gofmt']
 augroup fmt
 	autocmd!
 	autocmd BufWritePre * silent! undojoin | Neoformat
