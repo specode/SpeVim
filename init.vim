@@ -107,11 +107,13 @@ nmap <silent> <leader>dx :call CocActionAsync('jumpDefinition', 'split')<CR>
 nmap <silent> gb <C-O>
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <leader> rn <Plug>(coc-rename)
 
-nmap <leader>rn <Plug>(coc-rename)
+autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd BufWritePre * :call CocAction('format')
+" autocmd BufWritePre *.go :call CocAction('organizeImport')
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-
 function! s:show_documentation()
 	if (index(['vim','help'], &filetype) >= 0)
 		execute 'h '.expand('<cword>')
@@ -119,9 +121,6 @@ function! s:show_documentation()
 		call CocAction('doHover')
 	endif
 endfunction
-
-autocmd CursorHold * silent call CocActionAsync('highlight')
-autocmd BufWritePre *.go :call CocAction('organizeImport')
 
 let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
@@ -206,16 +205,6 @@ Plug 'flazz/vim-colorschemes'
 Plug 'tomtom/tcomment_vim'
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
-
-Plug 'sbdchd/neoformat'
-let g:neoformat_try_formatprg = 1
-let g:neoformat_basic_format_align = 0
-let g:neoformat_basic_format_retab = 0
-let g:neoformat_basic_format_trim = 1
-augroup fmt
-	autocmd!
-	autocmd BufWritePre * silent! undojoin | Neoformat
-augroup END
 
 Plug 'w0rp/ale'
 
