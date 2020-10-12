@@ -172,11 +172,9 @@ if executable('ag')
 	let g:ackprg = 'ag --vimgrep -a --ignore ''.git'' --ignore ''.svn'' --ignore ''.DS_Store'' --ignore ''node_modules'' --ignore ''*log*'' '
 endif
 
-Plug 'ctrlpvim/ctrlp.vim' | Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'ctrlpvim/ctrlp.vim'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-let g:ctrlp_extensions = ['buffertag']
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_working_path_mode = 0
@@ -188,10 +186,6 @@ let g:ctrlp_custom_ignore = {
 			\ 'file': '\v\.(exe|so|dll)$',
 			\ 'link': 'some_bad_symbolic_links',
 			\ }
-if executable("ag")
-	set grepprg=ag\ --nogroup\ --nocolor
-	let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.svn'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
-endif
 
 Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#left_sep = ' '
