@@ -90,14 +90,14 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Code complete {{{
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 inoremap <silent><expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<TAB>" :
-			\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 nmap <silent> gd :call CocActionAsync('jumpDefinition')<CR>
@@ -111,7 +111,7 @@ nmap <leader> rn <Plug>(coc-rename)
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd BufWritePre * :call CocAction('format')
-" autocmd BufWritePre *.go :call CocAction('organizeImport')
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -186,7 +186,7 @@ let g:ctrlp_custom_ignore = {
 			\ 'link': 'some_bad_symbolic_links',
 			\ }
 
-Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_left_sep          = '▶'
