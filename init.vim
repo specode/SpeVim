@@ -89,16 +89,17 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Code complete {{{
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
 
 nmap <silent> gd :call CocActionAsync('jumpDefinition')<CR>
 nmap <silent> <leader>dt :call CocActionAsync('jumpDefinition', 'tabe')<CR>
@@ -109,8 +110,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader> rn <Plug>(coc-rename)
 
-autocmd CursorHold * silent call CocActionAsync('highlight')
-autocmd BufWritePre * :call CocAction('format')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
