@@ -110,7 +110,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader> rn <Plug>(coc-rename)
 
-" autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -130,10 +130,10 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 Plug 'darfink/vim-plist'
 
 " Vue
-" Plug 'posva/vim-vue'
-" autocmd BufRead,BufNewFile {*.vue,*.wpy} setlocal filetype=vue.html.javascript.css
-" autocmd FileType vue syntax sync fromstart
-" let g:vue_disable_pre_processors=1
+Plug 'posva/vim-vue'
+autocmd BufRead,BufNewFile {*.vue,*.wpy} setlocal filetype=vue.html.javascript.css
+autocmd FileType vue syntax sync fromstart
+let g:vue_disable_pre_processors=1
 
 " Markdown
 Plug 'plasticboy/vim-markdown' | Plug 'godlygeek/tabular'
@@ -206,20 +206,12 @@ Plug 'tomtom/tcomment_vim'
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
-Plug 'w0rp/ale'
-
 Plug 'gcmt/wildfire.vim'
+
+Plug 'github/copilot.vim'
 
 " VCS {{{
 Plug 'airblade/vim-gitgutter'
-
-Plug 'tpope/vim-fugitive'
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gp :Git push<CR>
-nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
 
 Plug 'junegunn/gv.vim'
 nnoremap <silent> <leader>gl :GV<CR>
@@ -228,12 +220,7 @@ nnoremap <silent> <leader>gl :GV<CR>
 " }}}
 
 " Other {{{
-Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
-let g:gist_show_privates = 1
-let g:gist_post_private = 1
 
-Plug 'rizzatti/dash.vim'
-nmap <silent> <leader>d <Plug>DashSearch
 " }}}
 
 call plug#end()
