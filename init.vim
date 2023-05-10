@@ -112,6 +112,7 @@ nmap <leader> rn <Plug>(coc-rename)
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.formatDocument')
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
