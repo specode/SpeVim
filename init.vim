@@ -175,9 +175,9 @@ endif
 Plug 'ctrlpvim/ctrlp.vim'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-let g:ctrlp_working_path_mode = 0
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_lazy_update = 50
 let g:ctrlp_max_files = 0
